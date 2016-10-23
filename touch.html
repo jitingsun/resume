@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="css/reset.min.css"/>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background: khaki;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+
+</div>
+<script type="text/javascript">
+    var abox=document.getElementById('box');
+    abox.addEventListener('touchstart', function (ev) {
+        /*ev 手指事件对象  touches/changeTouches  存放了每一个手指的坐标信息 一般只需要获取第一个手指的坐标信息即可，当操作的时候值是一样的，手指离开时候，touches里面就没有内容了，需要使用changeTouches */
+        var point=ev.changeTouches[0];
+        this['strX']=point.pageX;
+        this['strY']=point.pageY;
+        this['changeX']=0;
+        this['changeY']=0;
+        this['isFlag']=false; //记录是否发生滑动
+
+    },false);
+    abox.addEventListener('touchmove', function (ev) {
+       //没有偏移 是点击操作 。只有发生了偏移，才进行进一步验证
+        var point=ev.changeTouches[0];
+        this['changeX']=point.pageX-this['strX'];
+        this['changeY']=point.pageY-this['strY'];
+        if(Math.abs(this['changeX'])>30||Math.abs(this['changeY'])>30){
+            this['isFlag']=true;
+        }
+    },false);
+    abox.addEventListener('touchend', function (ev) {
+            if(this['isFlag']){
+                console.log(swpDir(this['changeX'],this['changeY']));
+                return;
+            }
+        console.log('点击');
+    },false);
+    function swpDir(chX,chY){//验证滑动的方向
+        return Math.abs(chX)>Math.abs(chY)?(chX>0?'right':'left'):(chY>0?'down':'up');
+    }
+</script>
+</body>
+</html>

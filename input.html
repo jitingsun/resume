@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input{
+            border: none;
+            outline: none;
+            border: 1px solid #eee;
+        }
+        #user:valid{
+            border-color: #007aff;/* 利用css3的伪类：vaild/invaild 验证，但是只能验证格式是否正确，对于不输入情况验证的结果是正确的 就不需要进行js（checkValidity）处理*/
+        }
+        #user:invalid{
+            border-color: #c91523;
+        }
+    </style>
+</head>
+<body>
+<input type="number" max="66" min="22" step="1"/>
+<input type="date"/>
+<input type="range" max="66" min="22" step="1"/>
+
+<div class="box">
+    <input type="email" id="user"/>
+    <span class="tip" id="tip">not</span>
+</div>
+<!-- /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/ -->
+<script>
+    var   email = document.getElementById('user'),
+            tip = document.getElementById('tip');
+    email.onblur= function () {
+        var val=this.value.trim();//浏览器自带的去除字符串的首尾空格，但是低版本浏览器不兼容（trimLeft trimRight）
+                val=this.value.replace(/^ +| +$/g,'');
+        if(!val){
+            tip.innerHTML='no';
+            tip.style.color='red';
+            return;
+        }
+        if(!/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(val)){
+            tip.style.color='red';
+            tip.innerHTML='no';
+            return;
+        }
+        tip.style.color='green';
+        tip.innerHTML='yes';
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: #c91523;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+<script src="js/fastclick.min.js"></script>
+<script>
+    FastClick.attach(document.body);//采用的事件委托，我们这样写 是把touchstart move end都委托给body  以后只要是在这个容器中出现的click事件 ，都会用touch模型来处理
+var obox=document.getElementById('box');
+    obox.addEventListener('click', function () {
+        console.log(2);
+    })
+</script>
+</body>
+</html>
