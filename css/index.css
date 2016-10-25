@@ -1,0 +1,94 @@
+html {
+    font-size: 100px;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
+}
+
+.box {
+    position: relative;
+}
+
+.box, .swiper-container, .swiper-wrapper, .swiper-slide {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-wrapper .slide1 {
+    background: url("../img/bg1.jpg") no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.swiper-wrapper .slide1 .top {
+    position: absolute;
+    width: 1.86rem;
+    height: .86rem;
+    left: 51%;
+    top: 36%;
+    margin-left: -.93rem;
+    z-index: 2;
+    transform: rotateZ(0deg);
+    display: block;
+    box-shadow: rgba(0, 0, 0, 0.498039) 0 0 0;
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.760784);
+    line-height: 1;
+    padding-top: .08rem;
+    padding-bottom: 0;
+    opacity: 1;
+    animation: fadeIn 1s ease 0.5s 1 both;
+
+}
+
+.swiper-wrapper .slide1 .top span {
+    cursor: default;
+    width: 1.86rem;
+    font-size: .32rem;
+    color: #676767;
+    font-weight: 400;
+    height: .24rem;
+    text-align: left;
+    text-indent: .1rem;
+}
+
+.swiper-wrapper .slide1 .bottom {
+    position: absolute;
+    width: 1.87rem;
+    height: .86rem;
+    left: 50%;
+    bottom: 34%;
+    margin-left: -.93rem;
+    z-index: 1;
+    transform: rotateZ(0deg);
+    box-shadow: rgba(0, 0, 0, 0.498039) 0 0 0;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.439216);
+    line-height: 1;
+    padding-top: 8px;
+    padding-bottom: 0;;
+    border: 3px solid rgb(255, 255, 255);
+    animation: fadeIn 1s ease 2s 1 both;
+}
+
+.swiper-wrapper .slide1 .bottom span {
+    cursor: default;
+    width: 1.86rem;
+    font-size:  x-large;;
+    color: #fff;
+    font-weight: 400;
+    height: .24rem;
+    text-align: center  ;
+    text-indent: .1rem;
+}
+.swiper-wrapper .slide1 .bottom span:nth-child(2){
+    font-size: 16px;
+}
+.swiper-wrapper .slide2 {
+    background: url("../img/bg2.png") no-repeat;
+    background-size: cover;
+}
