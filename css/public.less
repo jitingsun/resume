@@ -1,0 +1,50 @@
+@color:#fff;
+@url:"../img";
+@percentage:100%;
+@color-black:#000;
+@color-white:#fff;
+.transition(@property:all,@duration:1s,@timing-function:ease,@delay:0s){
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -ms-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+.css3(@k,@v){
+  -webkit-@{k}:@v;
+  @{k}:@v;
+}
+.opacity(@opacity:1){
+  @result : @opacity*100;
+  opacity: @opacity;
+  filter:~"alpha(opacity = @{result})";
+}
+.float(@float:left){
+  float: @float;
+}
+.position(@pos:absolute,@left:0,@right:auto,@top:0,@bottom:auto,@zIndex:0){
+  position: @pos;
+  left: @left;
+  right: @right;
+  top: @top;
+  bottom: @bottom;
+  z-index: @zIndex;
+}
+.keyframes(@name){
+  @-webkit-keyframes @name {
+    .frame(-webkit-)
+  }
+  @-moz-keyframes @name {
+    .frame(-moz-)
+  }
+  @-ms-keyframes @name {
+    .frame(-ms-)
+  }
+  @-o-keyframes @name {
+    .frame(-o-);
+  }
+  @keyframes @name {
+    .frame();
+  }
+
+}

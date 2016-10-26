@@ -1,0 +1,212 @@
+@import (reference)"public.less";
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-weight: 300;
+  font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
+}
+
+.box {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  background: @color-black;
+  .swiper-container, .swiper-wrapper, .swiper-slide {
+    width: 100%;
+    height: 100%;
+  }
+  .slide1 {
+    .transition(transform 0.4s);
+    .css3(transform-origin, center top 0px);
+    .css3(transform, translateY(0px));
+    position: absolute;
+    background: url("../img/p11-.jpg");
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .top {
+      width: 6.44rem;
+      height: 6.04rem;
+      position: absolute;
+      left: 0;
+      top: 0.8rem;
+      img {
+        width: 8.66rem;
+        height: 6.04rem;
+        margin-top: 0;
+        margin-left: -1.1rem;
+      }
+    }
+    .middle {
+      width: 6.4rem;
+      height: .76rem;
+      position: absolute;
+      line-height: .76rem;
+      left: 0;
+      top: 6.1rem;
+      z-index: 3;
+      .css3(transform, rotateZ(0deg));
+      div {
+        width: 100%;
+        height: 100%;
+        top: 5.3rem;
+        left: .18rem;
+        z-index: 3;
+        line-height: inherit;
+        opacity: 1;
+        color: rgb(103, 103, 103);
+        border-radius: 0;
+        box-shadow: rgba(0, 0, 0, 0.498039) 0 0 0;
+        .css3(animation, fadeIn 2.5s ease 1s 1 both);
+        span {
+          display: block;
+          color: @color-white;
+          font-size: .36rem;
+          line-height: .76rem;
+          text-align: center;
+        }
+      }
+    }
+    .bottom {
+      position: absolute;
+      width: 6.72rem;
+      height: 3.8rem;
+      left: -.14rem;
+      top: 6.82rem;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.4);
+      .css3(transform, translateZ(0px));
+      & > div {
+        cursor: default;
+        width: 6.72rem;
+        height: 3.8rem;
+        padding: .2rem 0;
+        & > div {
+          text-align: center;
+          line-height: .48rem;
+          span {
+            color: @color-white;
+            font-size: .26rem;
+            line-height: .26rem;
+          }
+        }
+      }
+    }
+    .u-arrow-bottom {
+      position: absolute;
+      width: .48rem;
+      height: .24rem;
+      left: 50%;
+      z-index: 999;
+      margin-left: -.14rem;
+      bottom: .6rem;
+      .pre-wrap {
+        position: relative;
+        .css3(animation, start 1.5s infinite ease-in-out);
+        .pre-box1, .pre-box2 {
+          height: .3rem;
+          width: .22rem;
+          position: absolute;
+          top: -.1rem;
+          overflow: hidden;
+        }
+        .pre1, .pre2 {
+          width: .28rem;
+          height: .1rem;
+          position: absolute;
+          top: .1rem;
+          box-shadow: .01px -.01px .01px #646464;
+          border-radius: .04rem;
+          background-color: @color-white;
+        }
+        .pre1 {
+          left: 0;
+          .css3(transform, rotate(130deg));
+        }
+        .pre2 {
+          left: -.04rem;
+          .css3(transform, rotate(50deg));
+        }
+        .pre-box2 {
+          left: .16rem;
+        }
+      }
+    }
+  }
+  .slide2 {
+    .transition(transform 0.4s);
+    .css3(transform-origin, center top 0px);
+    .css3(transform, translateY(0px));
+    position: absolute;
+    background: url("../img/p21.jpg") no-repeat;
+    width: 100%;
+    background-size: 100% 100%;
+    height: 100%;
+    overflow: hidden;
+    .main {
+      margin-top: .82rem;
+      top: 0;
+      position: absolute;
+      text-align: left;
+      width: 6.4rem;
+      height: 9.72rem;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      li {
+        position: absolute;
+        color: #676767;
+        line-height: 1;
+        list-style: none;
+        padding: 0;
+        .css3(transition, padding .5s);
+        -webkit-user-select: none;
+        width: 100%;
+      }
+      li.first {
+        width: 6.6rem;
+        height: 9.92rem;
+        left: -.107rem;
+        top: -.12rem;
+        z-index: 1;
+        transform: rotateZ(0deg);
+        display: block;
+        .css3(animate, fadeIn 2.8s ease 0.8s 1 both);
+        div {
+          width: 100%;
+          height: 100%;
+          img {
+            box-sizing: border-box;
+            width: 6.6rem;
+            height: 9.92rem;
+            margin-top: 0;
+            margin-left: -.1rem;
+          }
+        }
+      }
+      li.wsite-text {
+        width: 100%;
+        height: 100%;
+        top: 5.46rem;
+        left: 1.2rem;
+        z-index: 2;
+        line-height: 1;
+        opacity: 1;
+        color: rgb(103, 103, 103);
+        padding-bottom: 0;
+        padding-top: 0;
+        border-radius: 0;
+        transform: none;
+        box-shadow: rgba(0, 0, 0, 0.498039) 0 0 0;
+        .css3(animation，fadeInLeft 2.6s ease 0s 1 both);
+      }
+    }
+  }
+}
+
