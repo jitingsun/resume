@@ -22,10 +22,27 @@ body {
     width: 100%;
     height: 100%;
   }
+  .swiper-pagination-progress{
+    position: absolute;
+    left: 0;
+    bottom:0;
+    width: 100%;
+    height: .1rem;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: 100;
+    span{
+      display: block;
+      height: 100%;
+      line-height: 100%;
+      width: .4rem;
+      background-color: #08A1EF;
+      .css3(transition,width .8s cubic-bezier(.26,.86,.44,.985));
+    }
+  }
   .slide1 {
-    .transition(transform 0.4s);
-    .css3(transform-origin, center top 0px);
-    .css3(transform, translateY(0px));
+    //.transition(transform 0.4s);
+    //.css3(transform-origin, center top 0px);
+    //.css3(transform, translateY(0px));
     background: url("../img/p11-.jpg");
     width: 100%;
     height: 100%;
@@ -36,6 +53,7 @@ body {
       position: absolute;
       left: 0;
       top: 0.8rem;
+      .css3(animation,fadeInUp 3s ease  both);
       img {
         width: 8.66rem;
         height: 6.04rem;
@@ -52,6 +70,7 @@ body {
       top: 6.1rem;
       z-index: 3;
       .css3(transform, rotateZ(0deg));
+      .css3(animation,fadeIn 2.5s ease 1s 1 both);
       div {
         width: 100%;
         height: 100%;
@@ -63,7 +82,7 @@ body {
         color: rgb(103, 103, 103);
         border-radius: 0;
         box-shadow: rgba(0, 0, 0, 0.498039) 0 0 0;
-        .css3(animation, fadeIn 2.5s ease 1s 1 both);
+        .css3(animation, fadeIn 2.5s ease 1s  both);
         span {
           display: block;
           color: @color-white;
@@ -81,6 +100,7 @@ body {
       top: 6.82rem;
       z-index: 2;
       background: rgba(0, 0, 0, 0.4);
+      .css3(animation,fadeInDown 3s ease 0s 1 both);
       .css3(transform, translateZ(0px));
       & > div {
         cursor: default;
@@ -108,9 +128,9 @@ body {
     z-index: 999;
     margin-left: -.14rem;
     bottom: .6rem;
+    .css3(animation, start 1.3s infinite ease-in-out);
     .pre-wrap {
       position: relative;
-      .css3(animation, start 1.5s infinite ease-in-out);
       .pre-box1, .pre-box2 {
         height: .3rem;
         width: .22rem;
@@ -144,7 +164,6 @@ body {
     .transition(transform 0.4s);
     .css3(transform-origin, center top 0px);
     .css3(transform, translateY(0px));
-
     background: url("../img/p21.jpg") no-repeat;
     width: 100%;
     background-size: 100% 100%;
@@ -170,17 +189,17 @@ body {
         width: 100%;
       }
       li.first {
+        display: block;
         width: 6.6rem;
         height: 9.92rem;
         left: -.107rem;
         top: -.12rem;
         z-index: 1;
         transform: rotateZ(0deg);
-        display: block;
-        .css3(animate, fadeIn 2.8s ease 0.8s 1 both);
+
         div {
           width: 100%;
-          height: 100%;
+          height: 100%;.css3(animation, fadeIn 2.8s ease 0.8s 1 both);
           img {
             box-sizing: border-box;
             width: 6.6rem;
@@ -204,7 +223,6 @@ body {
         border-radius: 0;
         transform: none;
         box-shadow: rgba(0, 0, 0, 0.498039) 0 0 0;
-        .css3(animation,fadeInLeft 2.6s ease 0s 1 both);
         div {
           cursor: default;
           width: 6.4rem;
@@ -218,6 +236,12 @@ body {
            color: rgb(253, 234, 2);
           }
         }
+      }
+      & li:nth-child(2){
+        div{
+          .css3(animation,fadeInLeft 2.6s ease 0s 1 both);
+        }
+
       }
       & li:nth-child(3){
         top:6.16rem;
@@ -269,7 +293,7 @@ body {
         z-index: 1;
         transform: rotateZ(0deg);
         display: block;
-        .css3(animate, fadeIn 2.8s ease 0.8s 1 both);
+        .css3(animation, fadeIn 2.8s ease 0.8s 1 both);
         div {
           width: 100%;
           height: 100%;
