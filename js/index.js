@@ -1,7 +1,11 @@
 var mySwiper = new Swiper('.swiper-container', {
     direction: 'vertical',
     loop: false,
-    effect:'flip',
+    effect:'cube',
+    slideShadows:false,
+    shadow:false,
+    shadowOffset:0,
+    shadowScale:1,
     pagination : '.swiper-pagination',
     paginationType:'progress',
     onSlideChangeEnd: function (swiper) {
