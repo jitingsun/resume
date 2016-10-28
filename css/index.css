@@ -216,7 +216,7 @@ html, body {
 }
 /*第三张*/
 .skills{
-    margin: .3rem auto;
+    margin: .2rem auto;
     width: 2rem;
     height: .5rem;
     line-height: .5rem;
@@ -230,7 +230,7 @@ html, body {
 .pageThr ul{
     position: absolute;
     left: .2rem;
-    top: 1.3rem;
+    top: 1.0rem;
     //border: 1px solid black;
 }
 .skill_list{
@@ -337,7 +337,7 @@ html, body {
 }
 .pageFor ul{
     position: absolute;
-    bottom: .5rem; ;
+    bottom: .5rem;
     width: 1.3rem;
     color: #FFFFFF;
     font-size: .16rem;
@@ -355,16 +355,16 @@ html, body {
     color: #fff;
 }
 .fir_left,.fir_right{
-    bottom: 1.4rem;
+    bottom: 1rem;
 }
 .two_left,.two_right{
-    bottom: 1.4rem;
+    bottom: 1rem;
 }
 .thr_left,.thr_right{
-    bottom: 2.9rem;
+    bottom: 2.5rem;
 }
 .for_left,.for_right{
-    bottom: 3rem;
+    bottom: 2.5rem;
 }
 /*第五张*/
 .contact{
@@ -396,7 +396,7 @@ div.weixin{
     padding-top: .1rem;
 }
 .info{
-    margin: 1rem auto;
+    margin: .5rem auto;
     width: 1.8rem;
 }
 .info li{
