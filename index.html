@@ -2,48 +2,118 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <link rel="stylesheet" href="css/reset.min.css"/>
-    <link rel="stylesheet" href="css/swiper.min.css"/>
-    <link rel="stylesheet" href="css/animate.css"/>
-    <link rel="stylesheet" href="css/index.css"/>
-    <script>
-        var desW = 640;
-        var winW = document.documentElement.clientWidth;
-        var desWfontSize = 100;
-        document.documentElement.style.fontSize = winW/desW*desWfontSize+"px";
-    </script>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>个人简历</title>
+    <link charset="UTF-8" rel="stylesheet" href="css/animate.css">
+    <link charset="UTF-8" rel="stylesheet" href="css/swiper.min.css">
+    <link charset="UTF-8" rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<div id="box" class="box">
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide slide1">
-                <!--<div class="top fadeInUp"><img src="img/p11.jpg"/></div>-->
-                <div class="middle fadeIn"><span>Call Me</span></div>
-                <div class="button">
-                        <img src="img/btn_01.png" alt="">
-                </div>
+<section class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide pageFir" trueId="page1">
+            <div class="resume">
+                <span>PERSONAL RESUME</span><br>
+                <span>个人简历</span>
             </div>
-            <div class="swiper-slide slide2">
-                <img src="img/p21.jpg"/>
-                <img src="img/p22.jpg"/>
+            <div class="logo">
             </div>
-            <div class="u-arrow-bottom">
-                <div class="pre-wrap">
-                    <div class="pre-box1">
-                        <div class="pre1"></div>
-                    </div>
-                    <div class="pre-box2">
-                        <div class="pre2"></div>
-                    </div>
-                </div>
+            <h3 class="job_direction"></h3>
+            <div class="title">
+                <p>—> 求职 <—</p>
+            </div>
+
+        </div>
+        <div class="swiper-slide pageTwo" trueId="page2">
+            <div class="white_back">
+                <h2 class="basic">个人信息</h2>
+                <ul class="basic_ul">
+                    <li>
+                        <span>姓名：</span>
+                        <span>孙基蜓</span>
+                    </li>
+                    <li>
+                        <span>年龄：</span>
+                        <span>23</span>
+                    </li>
+                    <li>
+                        <span>学历：</span>
+                        <span>大学本科</span>
+                    </li>
+                    <li>
+                        <span>毕业院校：</span>
+                        <span>青岛工学院</span>
+                    </li>
+                    <li>
+                        <span>爱好：</span>
+                        <span>旅游、篮球、跑步、电竞</span>
+                    </li>
+                </ul>
+
             </div>
         </div>
+        <div class="swiper-slide pageThr" trueId="page3">
+            <h2 class="skills">专业技能</h2>
+            <ul>
+                <li class="skill_list ">
+                    <div class="child_left skill_list1"><img src="img/skill1.png"/></div>
+                    <p class="child_right1">APP开发</p>
+                </li>
+                <li class="skill_list ">
+                    <div class="child_left skill_list2"><img src="img/skill2.png"/></div>
+                    <p class="child_right2">微信平台开发</p>
+                </li>
+                <li class="skill_list ">
+                    <div class="child_left skill_list3"><img src="img/skill3.png"/></div>
+                    <p class="child_right3">HTML5+CSS3应用</p>
+                </li>
+                <li class="skill_list ">
+                    <div class="child_left skill_list4"><img src="img/skill4.png"/></div>
+                    <p class="child_right4">Node.JS</p>
+                </li>
+                <li class="skill_list ">
+                    <div class="child_left skill_list5"><img src="img/skill5.png"/></div>
+                    <p class="child_right5">angular.js</p>
+                </li>
+            </ul>
+        </div>
+        <div class="swiper-slide pageFor" trueId="page4">
+            <h2 class="experience">学习及工作经历</h2>
+            <div class="mid">
+                <div class="fir"></div>
+                <div class="two"></div>
+                <div class="thr"></div>
+                <div class="for"></div>
+            </div>
+            <ul class="left">
+                <li class="fir_left">2012.09-2015.06 廊坊师范学院</li>
+                <li class="thr_left">2014.10-2015.07 苏州梦图软件有限公司</li>
+            </ul>
+            <ul class="right">
+                <li class="two_right">学习电气自动化</li>
+                <li class="for_right">前端工程师</li>
+            </ul>
+        </div>
+        <div class="swiper-slide pageFiv" trueId="page5">
+            <h2 class="contact">感谢观看</h2>
+            <div class="weixin"><img src="img/p5.png"><p>扫一扫加我为好友</p></div>
+            <ul class="info">
+                <li class="restart">重新启程</li>
+                <li class="restart">RESTART</li>
+            </ul>
+        </div>
     </div>
-</div>
+</section>
+<section class="arrow"></section>
+<script charset="UTF-8" type="text/javascript" src="js/swiper.min.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js/fastClick.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    FastClick.attach(document.body);
+</script>
 </body>
 </html>
-<script src="js/swiper.min.js"></script>
-<script src="js/index.js"></script>

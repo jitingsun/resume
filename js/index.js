@@ -1,32 +1,49 @@
+~function (desW) {
+    var winW = document.documentElement.clientWidth;
+    document.documentElement.style.fontSize = winW / desW * 100 + "px";
+}(320);
+/*划屏区域初始化*/
+
+
 var mySwiper = new Swiper('.swiper-container', {
-    direction: 'vertical',
-    loop: false,
-    effect:'slide',
+    direction: "vertical",
+    loop: true,
+    speed:500,
     pagination : '.swiper-pagination',
     paginationType:'progress',
-    onSlideChangeEnd: function (swiper) {
-        var slides = swiper.slides;//获取所有的滑块
-        var curIndex = swiper.activeIndex;//当前活动的滑块的索引
-        var trueNum = slides.length - 2;//真实的滑块
-        var lastNum = trueNum + 1;
-        [].forEach.call(slides, function (item, index) {
-            item.id = '';
-            if (index == curIndex) {
-                switch (index) {
-                    case 0:
-                        item.id = 'page' + trueNum;
-                        break;
-                    case lastNum:
-                        item.id = 'page1';
-                        break;
-                    default :
-                        item.id = 'page' + curIndex;
-                }
-            }
-        })
-    },
     onInit: function (swiper) {
-//            var slides=swiper.slides;
-//            slides[0].id='page1';
+        swiper.myactive = 1;
+    },
+    onTransitionEnd: function (swiper) {
+        swiper.myactive = swiper.activeIndex;
+        var myId = swiper.slides[swiper.myactive].getAttribute("trueId");
+        for (var i = 0; i < swiper.slides.length; i++) {
+            swiper.slides[i].id = i == swiper.myactive ? myId : null;
+        }
     }
 });
+
+
+
+/*音频的自动播放*/
+~function () {
+    var audioBox=document.querySelector(".audio"),
+        myAudio=audioBox.getElementsByTagName("audio")[0];
+    window.setTimeout(function () {
+        myAudio.play();
+        myAudio.addEventListener("canplay",function () {
+            audioBox.style.display="block";
+            audioBox.className+=" audioMove";
+        },false);
+    },1000);
+    audioBox.addEventListener("click",function () {
+        if(myAudio.paused){
+            myAudio.play();
+            audioBox.className="audio audioMove";
+            return;
+        }
+        myAudio.pause();
+        audioBox.className="audio";
+    },false);
+
+}();
