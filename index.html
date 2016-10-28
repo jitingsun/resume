@@ -1,126 +1,49 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <link rel="stylesheet" href="css/reset.min.css"/>
-    <link rel="stylesheet" href="css/animate.css"/>
     <link rel="stylesheet" href="css/swiper.min.css"/>
-    <link rel="stylesheet/less" href="css/index.less"/>
-    <title>resume</title>
-    <script src="js/less-2.5.3.min.js"></script>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
     <script>
-        document.documentElement.style.fontSize = document.documentElement.clientWidth / 640 * 100 + 'px';
+        var desW = 640;
+        var winW = document.documentElement.clientWidth;
+        var desWfontSize = 100;
+        document.documentElement.style.fontSize = winW/desW*desWfontSize+"px";
     </script>
 </head>
 <body>
-<div class="box" id="box">
+<div id="box" class="box">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <section class="swiper-slide slide1">
-                <div class="top fadeInUp">
-                    <div><img src="img/p11.jpg" alt=""/></div>
+            <div class="swiper-slide slide1">
+                <!--<div class="top fadeInUp"><img src="img/p11.jpg"/></div>-->
+                <div class="middle fadeIn"><span>Call Me</span></div>
+                <div class="button">
+                        <img src="img/btn_01.png" alt="">
                 </div>
-                <div class="middle fadeIn">
-                    <div><span>一个月后，你要拿什么告别2015？</span></div>
-                </div>
-                <div class="bottom fadeInDown">
-                    <div>
-                        <div><span>时间是公平的，ss</span></div>
-                        <div><span>时间是公平的，</span></div>
-                        <div><span>时间是公平的aa，</span></div>
-                        <div><span>时间是公平的，ss</span></div>
-                        <div><span>时间是公平的，ssaa</span></div>
-                        <div><span>时间是公平的，</span></div>
+            </div>
+            <div class="swiper-slide slide2">
+                <img src="img/p21.jpg"/>
+                <img src="img/p22.jpg"/>
+            </div>
+            <div class="u-arrow-bottom">
+                <div class="pre-wrap">
+                    <div class="pre-box1">
+                        <div class="pre1"></div>
+                    </div>
+                    <div class="pre-box2">
+                        <div class="pre2"></div>
                     </div>
                 </div>
-                <section class="u-arrow-bottom start">
-                    <div class="pre-wrap ">
-                        <div class="pre-box1">
-                            <div class="pre1"></div>
-                        </div>
-                        <div class="pre-box2">
-                            <div class="pre2"></div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-            <section class="swiper-slide slide2">
-                <div class="main">
-                    <ul>
-                        <li class="first">
-                            <div class="fadeIn"><img src="img/p22.jpg"></div>
-                        </li>
-                        <li class="wsite-text">
-                            <div class="fadeInLeft"><span>那些比你</span><span class="ora">走得远</span><span>的人，</span></div>
-                        </li>
-                        <li class="wsite-text">
-                            <div class="fadeInLeft"><span>并</span><span class="ora">不是</span><span>比你聪慧，</span></div>
-                        </li>
-                        <li class="wsite-text">
-                            <div><span>只是每天</span><span class="ora">多走</span><span>了一点</span></div>
-                        </li>
-                        <li class="wsite-text">
-                            <div><span>你若</span><span class="ora">不相信</span><span>努力和时光</span></div>
-                        </li>
-                        <li class="wsite-text">
-                            <div><span>时光一定第一个</span><span class="ora">辜负你</span></div>
-                        </li>
-                    </ul>
-                </div>
-                <section class="u-arrow-bottom">
-                    <div class="pre-wrap">
-                        <div class="pre-box1">
-                            <div class="pre1"></div>
-                        </div>
-                        <div class="pre-box2">
-                            <div class="pre2"></div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-            <section class="swiper-slide slide3">
-                <div class="main">
-                    <ul>
-                        <li class="first">
-                            <div><img src="img/p32.jpg"></div>
-                        </li>
-                        <li class="wsite-text">
-                            <div><span>那些比你</span><span class="ora">走得远</span><span>的人，</span></div>
-                        </li>
-                        <li class="wsite-text">
-                            <div><span>并</span><span class="ora">不是</span><span>比你聪慧，</span></div>
-                        </li>
-                        <li class="wsite-text">
-                            <div><span>只是每天</span><span class="ora">多走</span><span>了一点</span></div>
-                        </li>
-                        <li class="wsite-text">
-                            <div><span>你若</span><span class="ora">不相信</span><span>努力和时光</span></div>
-                        </li>
-                        <li class="wsite-text">
-                            <div><span>时光一定第一个</span><span class="ora">辜负你</span></div>
-                        </li>
-                    </ul>
-                </div>
-                <section class="u-arrow-bottom">
-                    <div class="pre-wrap">
-                        <div class="pre-box1">
-                            <div class="pre1"></div>
-                        </div>
-                        <div class="pre-box2">
-                            <div class="pre2"></div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <div class="swiper-pagination"></div>
+            </div>
         </div>
     </div>
 </div>
-
-<script src="js/swiper.min.js"></script>
-<script src="js/index.js"></script>
 </body>
 </html>
+<script src="js/swiper.min.js"></script>
+<script src="js/index.js"></script>

@@ -1,0 +1,210 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.box,.swiper-container,.swiper-wrapper,.swiper-slide{
+    width: 100%;
+    height: 100%;
+}
+.box{
+    position: relative;
+}
+.swiper-wrapper .slide1{
+    background: url('../img/first.PNG') no-repeat;
+    background-size: cover;
+}
+.u-arrow-bottom {
+    position: absolute;
+    width: .48rem;
+    height: .24rem;
+    left: 50%;
+    z-index: 999;
+    margin-left: -.14rem;
+    bottom: .6rem;
+   -webkit-animation: start 1.3s infinite ease-in-out;
+   animation: start 1.3s infinite ease-in-out;
+}
+.pre-wrap {
+    position: relative;
+}
+
+.pre-box1, .pre-box2 {
+    height: .3rem;
+    width: .22rem;
+    position: absolute;
+    top: -.1rem;
+    overflow: hidden;
+}
+.pre1, .pre2 {
+    width: .28rem;
+    height: .1rem;
+    position: absolute;
+    top: .1rem;
+    box-shadow: .02rem -.02rem .02rem #646464;
+    border-radius: .04rem;
+    background-color:#ffffff;
+}
+.pre1 {
+    left: 0;
+    -webkit-transform: rotate(130deg);
+    transform: rotate(130deg);
+}
+.pre2 {
+    left: -.04rem;
+-webkit-transform: rotate(50deg);
+transform: rotate(50deg);
+}
+.pre-box2 {
+    left: .16rem;
+}
+.swiper-wrapper .slide1 .middle{
+    position: absolute;
+    width: 100%;
+    top: 10%;
+    left:0;
+    font-size: .46rem;
+    color: #000;
+    text-align: center;
+    -webkit-animation:fadeIn 2.5s ease 1s 1 both;
+    animation:fadeIn 2.5s ease 1s 1 both;
+}
+.swiper-wrapper .slide1 .button {
+    position: absolute;
+    width: 1.44rem;
+    height:1.44rem;
+    bottom:12%;
+    left: 50%;
+    margin-left:-0.72rem;
+    border-radius: 50%;
+}
+.swiper-wrapper .slide1 .button img{
+    width: 1.44rem;
+    height:1.44rem;
+    -webkit-box-shadow: 0 0 0 30px transparent;
+    box-shadow: 0 0 0 30px transparent;
+    border-radius: 50%;
+    -webkit-animation:box-shadow 1s ease infinite both;
+    animation:box-shadow 1s ease infinite both ;
+    background-size:cover;
+}
+.swiper-wrapper .slide2{
+    background: url('../img/p21.jpg') no-repeat;
+    background-size: cover;
+}
+.slide1 img:nth-child(1){
+    width:0.96rem ;
+    height: 2.32rem;
+    left: 2rem;
+    top: 0.28rem;
+}
+.slide1 img:nth-child(2){
+    width:3.7rem ;
+    height: 6.1rem;
+    right: 0;
+    top: 0.28rem;
+}
+.slide1 img:nth-child(3){
+    width: 5.51rem;
+    height: 5.13rem;
+    left: 0.5rem;
+    bottom: 0.8rem;
+}
+.slide1 img:nth-child(4){
+    width: 7.86rem;
+    height: 5.89rem;
+    left: -1.6rem;
+    bottom: 0.8rem;
+}
+#page1 img{
+    opacity: 1;
+}
+#page1 img:nth-child(1){
+    -webkit-animation:bounceInLeft 1s 0s both;
+    animation:bounceInLeft 1s 0s both;
+}
+#page1 img:nth-child(2){
+    -webkit-animation:bounceInRight 1s 0.3s both;
+    animation:bounceInRight 1s 0.3s both;
+}
+#page1 img:nth-child(3){
+    -webkit-animation:bounceInUp 1s 0.6s both;
+    animation:bounceInUp 1s 0.6s both;
+}
+#page1 img:nth-child(4){
+    -webkit-animation:bounceInUp 1s 0.9s both;
+    animation:bounceInUp 1s 0.9s both;
+}
+.slide2 img{
+    position: absolute;
+    opacity: 0;
+}
+.slide2 img:nth-child(1){
+    width: 3.4rem;
+    height: 1.74rem;
+    top: 0;
+    left: 0;
+}
+.slide2 img:nth-child(2){
+    width: 0.61rem;
+    height: 6.38rem;
+    top: 2.5rem;
+    left: 1.48rem;
+}
+.slide2 img:nth-child(3){
+    width: 0.62rem;
+    height: 6.23rem;
+    top: 2.5rem;
+    left: 3rem;
+}
+.slide2 img:nth-child(4){
+    width: 0.54rem;
+    height: 6.17rem;
+    left: 4.5rem;
+    top: 2.5rem;
+}
+#page2 img{
+    opacity: 1;
+}
+#page2 img:nth-child(1){
+    -webkit-animation:bounceInLeft 1s 0s 1 both;
+    animation:bounceInLeft 1s 0s 1 both;
+}
+#page2 img:nth-child(2){
+    -webkit-animation:zoomIn 1s 0.3s 1 both;
+    animation:zoomIn 1s 0.3s  1 both;
+}
+#page2 img:nth-child(3){
+    -webkit-animation:zoomIn 1s 0.6s 1 both ;
+    animation:zoomIn 1s 0.6s 1 both;
+}
+
+#page2 img:nth-child(4){
+    -webkit-animation:zoomIn 1s 0.9s 1 both;
+    animation:zoomIn 1s 0.9s 1 both;
+}
+/*.music{*/
+/*width: 0.6rem;*/
+/*height: 0.6rem;*/
+/*position: absolute;*/
+/*top: 0.2rem;*/
+/*right: 0.2rem;*/
+/*z-index: 111;*/
+/*background: url(../audio/music.svg) no-repeat;*/
+/*background-size: 100% 100%;*/
+/*opacity: 0;*/
+/*}*/
+/*.musicMove{*/
+/*-webkit-animation: move 1s infinite linear both;*/
+/*animation: move 1s infinite linear both;*/
+/*}*/
+/*@keyframes move {*/
+/*0%{*/
+/*-webkit-transform: rotate(0deg);*/
+/*transform: rotate(0deg);*/
+/*}*/
+/*100%{*/
+/*-webkit-transform: rotate(360deg);*/
+/*transform: rotate(360deg);*/
+/*}*/
+/*}*/

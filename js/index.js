@@ -4,7 +4,7 @@ var mySwiper = new Swiper('.swiper-container', {
     effect:'slide',
     pagination : '.swiper-pagination',
     paginationType:'progress',
-    onTransitionEnd: function (swiper) {
+    onSlideChangeEnd: function (swiper) {
         var slides = swiper.slides;//获取所有的滑块
         var curIndex = swiper.activeIndex;//当前活动的滑块的索引
         var trueNum = slides.length - 2;//真实的滑块
