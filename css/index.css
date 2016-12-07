@@ -1,45 +1,5 @@
-@charset "utf-8";
-* {
-    margin: 0;
-    padding: 0;
-    -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: transparent;
-}
 html {
-    -webkit-text-size-adjust: none;
-}
-body {
-    -webkit-user-select: none;
-    font-family:'Microsoft Yahei',Tahoma,Helvetica,Arial,sans-serif;
-    font-size: 12px;
-    color: #424242;
-}
-header, footer, nav, section, aside, figure, figcaption, article, audio, video {
-    display: block;
-}
-input {
-    outline: none;
-}
-
-ul, li {
-    list-style: none;
-}
-a, a:hover, a:active, a:visited, a:target {
-    text-decoration: none;
-    color: #424242;
-}
-img {
-    display: block;
-    border: none;
-}
-.clear:after {
-    display: block;
-    height: 0;
-    content: "";
-    clear: both;
-}
-html {
-    font-size: 100px;
+    font-size: 100px; /*640设计稿中:1REM=100PX*/
 }
 
 html, body {
@@ -47,509 +7,737 @@ html, body {
     height: 100%;
     overflow: hidden;
 }
-.arrow {
-    position: absolute;
-    left: 50%;
-    bottom: .2rem;
-    z-index: 100;
-    margin-left: -.12rem;
-    width: .24rem;
-    height: .18rem;
-    background: url("../img/web-swipe-tip.png") no-repeat;
-    background-size: 100% 100%;
-    opacity: 1;
-    -webkit-animation: arrowFlash 1s linear 0s infinite;
-    animation: arrowFlash 1s linear 0s infinite;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-}
-@-webkit-keyframes arrowFlash {
-    0%, 100% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    50% {
-        opacity: 0.1;
-        -webkit-transform: translateY(-10px);
-        transform: translateY(-10px);
-    }
-}
-@keyframes arrowFlash {
-    0%, 100% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    50% {
-        opacity: 0.1;
-        -webkit-transform: translateY(-10px);
-        transform: translateY(-10px);
-    }
-}
-.swiper-container {
-    height: 100%;
-}
-.swiper-slide {
+
+body {
     position: relative;
-    height: 100%;
+    z-index: -3;
 }
-.pageFir {
-    background: url("../img/p4.jpg") no-repeat;
+
+.loading, .enter, .cube, .swiper {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/*--LOADING--*/
+.loading {
+    background: url("../img/bg.jpg") no-repeat center center;
     background-size: cover;
 }
-.pageTwo{
-     background: url("../img/b3.jpg") no-repeat;
-     background-size: 100% 100%;
- }
-.pageThr{
-    background: url("../img/b3.jpg") no-repeat;
+
+.loading .title {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -5.2rem;
+    width: 100%;
+    height: 1.4rem;
+    color: #000;
+    text-align: center;
+    letter-spacing: .04rem;
+    font-family: "\5b8b\4f53", "Arial Narrow";
+}
+
+.loading .title h2 {
+    margin-top: 4.2rem;
+    height: .55rem;
+    line-height: .55rem;
+    font-size: .5rem;
+}
+
+.loading .title h3 {
+    margin-top: 0.4rem;
+    height: .55rem;
+    line-height: .55rem;
+    font-size: .35rem;
+}
+
+.loading .progress {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: .85rem 0 0 -2.3rem;
+    width: 4.6rem;
+    height: .3rem;
+    background: #FFF;
+    border-radius: .06rem;
+}
+
+.loading .progress .progressBox {
+    width: 0;
+    height: 100%;
+    border-radius: .06rem;
+
+    background: -webkit-linear-gradient(45deg, #fe4237 25%, #ff8f5f 25%, #ff8f5f 50%, #fe4237 50%, #fe4237 75%, #ff8f5f 75%);
+    background: linear-gradient(45deg, #fe4237 25%, #ff8f5f 25%, #ff8f5f 50%, #fe4237 50%, #fe4237 75%, #ff8f5f 75%);
+    background-size: .5rem .5rem;
+
+    -webkit-animation: loadingMove 1s linear infinite both;
+    animation: loadingMove 1s linear infinite both;
+
+    -webkit-transition: all 1s linear 0s;
+    transition: all 1s linear 0s;
+}
+
+.music{
+    width: 0.7rem;
+    height: 0.7rem;
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    z-index: 111;
+    background: url(../audio/music.png) no-repeat;
+    background-size: 100% 100%;
+    opacity: 0;
+}
+.musicMove{
+    -webkit-animation: move 1s infinite linear both;
+    animation: move 1s infinite linear both;
+}
+@keyframes move {
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+/*--ENTER--*/
+.enter {
+    z-index: -2;
+    background: url("../img/bg2.jpg") no-repeat;
+    background-size: 100% 100%;
+
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.enter:nth-child(even) {
+    -webkit-animation:bounceInUp 1s 0s both;
+    animation:bounceInUp 1s 0s both;
+}
+
+.enter h2 img{
+    position: absolute;
+    top: .8rem;
+    left: 50%;
+    margin-left: -1.75rem;
+    width: 3.5rem;
+    height: 2rem;
+}
+
+#enter h2 img {
+    -webkit-animation: bounceInDown 1s 0.2s both;
+    animation: bounceInDown 1s 0.2s both;
+}
+
+.enter .button {
+    position: absolute;
+    bottom: .5rem;
+    left: 50%;
+    margin-left: -0.75rem;
+    width: 1.5rem;
+    height: 1.5rem;
+
+    border-radius: 50%;
+    background: url("../img/btn.jpg") no-repeat;
     background-size: 100% 100%;
 }
-.pageFor{
-    background: url("../img/p4.jpg") no-repeat;
+
+#enter .button {
+    -webkit-animation: zoomIn 1s 1s both, enterScale 1.25s 0s infinite both;
+    animation: zoomIn 1s 1s both, enterScale 1.25s 0s infinite both;
+}
+
+.enter .button div {
+    box-sizing: border-box; /*CSS3新增加的一个盒子模型属性:设定容器的宽度就是我们设定的WIDTH和HEIGHT的值，不管以后是否去调节边框和PADDING，整个盒子的宽高是不变的*/
+    position: absolute;
+    z-index: 5;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+}
+
+/*--CUBE--*/
+.cube {
+    perspective: 1000px;
+    background: url("../img/b3.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.cube .tip {
+    position: absolute;
+    top: .5rem;
+    left: 50%;
+    margin-left: -2rem;
+    width: 4rem;
+    height: .8rem;
+    background: url("../img/cubeTip.png") no-repeat;
     background-size: 100% 100%;
 }
-.pageFiv {
-    background: url("../img/p4.jpg") no-repeat;
+
+.cube .cubeBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -2.55rem 0 0 -2.55rem;
+    width: 5.1rem;
+    height: 5.1rem;
+
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    -webkit-transform: scale(0.6) rotateX(-35deg) rotateY(45deg);
+    transform: scale(0.6) rotateX(-35deg) rotateY(45deg);
+
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.cube .cubeBox li {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -2.55rem 0 0 -2.55rem;
+    width: 100%;
+    height: 100%;
+}
+
+.cube .cubeBox li:nth-child(1) {
+    background: url("../img/cube1.png") no-repeat;
+    background-size: 100% 100%;
+    -webkit-transform: translateZ(2.55rem);
+    transform: translateZ(2.55rem);
+}
+
+.cube .cubeBox li:nth-child(2) {
+    background: url("../img/cube5.png") no-repeat;
+    background-size: 100% 100%;
+    -webkit-transform: rotateY(180deg) translateZ(2.55rem);
+    transform: rotateY(180deg) translateZ(2.55rem);
+}
+
+.cube .cubeBox li:nth-child(3) {
+    background: url("../img/cube3.png") no-repeat;
+    background-size: 100% 100%;
+    -webkit-transform: rotateY(90deg) translateZ(2.55rem);
+    transform: rotateY(90deg) translateZ(2.55rem);
+}
+
+.cube .cubeBox li:nth-child(4) {
+    background: url("../img/cube4.png") no-repeat;
+    background-size: 100% 100%;
+    -webkit-transform: rotateY(-90deg) translateZ(2.55rem);
+    transform: rotateY(-90deg) translateZ(2.55rem);
+}
+
+.cube .cubeBox li:nth-child(6) {
+    background: url("../img/cube6.png") no-repeat;
+    background-size: 100% 100%;
+    -webkit-transform: rotateX(-90deg) translateZ(2.55rem);
+    transform: rotateX(-90deg) translateZ(2.55rem);
+}
+
+.cube .cubeBox li:nth-child(5) {
+    background: url("../img/cube2.png") no-repeat;
+    background-size: 100% 100%;
+    -webkit-transform: rotateX(90deg) translateZ(2.55rem);
+    transform: rotateX(90deg) translateZ(2.55rem);
+}
+
+/*--SWIPER--*/
+.swiper .return {
+    position: absolute;
+    top: .2rem;
+    right: .2rem;
+    z-index: 1000;
+    width: .64rem;
+    height: .75rem;
+    background: url("../img/return.png") no-repeat;
     background-size: 100% 100%;
 }
-/*第一张*/
-.resume{
+
+.swiper-container, .swiper-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: Microsoft JhengHei;
+}
+
+/*个人简介*/
+.page1 {
+    background: url("../img/b3.jpg") no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.page1 p {
+    position: absolute;
+    margin-top: 0.5rem;
+    top: .57rem;
+    left: .64rem;
+    width: 5.5rem;
+    line-height: .6rem;
+    color: #fff;
+    font-family: "microsoft yahei";
+    font-size: .33rem;
+    opacity: 0;
+}
+
+.page1 p span {
+    margin-left: 0.64rem;
+}
+
+.page1 p:nth-child(2) {
+    top: 2.1rem;
+    width: 5.5rem;
+}
+
+.page1 p:nth-child(3) {
+    top: 3.6rem;
+    width: 5.5rem;
+}
+
+.page1 p:nth-child(4) {
+    top: 5.1rem;
+    width: 5.5rem;
+}
+
+#page1 p:nth-child(1) {
+    -webkit-animation: bounceInLeft 1s both;
+    animation: bounceInLeft 1s both;
+}
+
+#page1 p:nth-child(2) {
+    -webkit-animation: bounceInRight 1s 0.2s both;
+    animation: bounceInRight 1s 0.2s both;
+}
+
+#page1 p:nth-child(3) {
+    -webkit-animation: bounceInDown 1s 0.4s both;
+    animation: bounceInDown 1s 0.4s both;
+}
+
+#page1 p:nth-child(4) {
+    -webkit-animation: bounceInUp 1s 0.8s both;
+    animation: bounceInUp 1s 0.8s both;
+}
+
+/*工作技能*/
+.page2 {
+    background: url("../img/b3.jpg") no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.page2 h2 {
     position: absolute;
     left: 0;
     top: 1.3rem;
     width: 100%;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #FFFFFF;
-    border-bottom: 2px solid lightblue;
-    letter-spacing: .03rem;
+    height: .9rem;
+    line-height: .9rem;
     text-align: center;
-    opacity: 0;
-}
-.resume span{
-    display: inline-block;
-}
-.resume span:nth-child(1){
-    line-height: .25rem;
-    font-size: .12rem;
-    height: .25rem;
-}
-.resume span:nth-child(3){
-    height: .5rem;
-    line-height: .5rem;
-    font-size: .24rem;
-}
-.logo{
-    position: absolute;
-    left:0;
-    bottom:5%;
-    margin: .15rem auto;
-    width: 100%;
-    height: 30%;
-    background-size: 100% 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    opacity: 0;
-}
-.job_direction{
-    position: absolute;
-    left: .6rem;
-    top: 3rem;
-    width: 2rem;
-    height: .4rem;
-    text-align: center;
-    line-height: .4rem;
-    letter-spacing: .03rem;
-    font-size: .18rem;
-    font-weight:normal;
-    color: #FFFFFF;
-    opacity: 0;
-}
-.title{
-    position: absolute;
-    left: 0;
-    bottom: 1rem;
-    font-size: .18rem;
-    width: 100%;
-    color:rgba(255,255,255,.8);
-    opacity: 0;
-    text-align: center;
-}
-.title p{
-    display: inline-block;
-}
-/*第二张*/
-.white_back{
-    position: absolute;
-    left: .05rem;
-    top: .6rem;
-    width: 3rem;
-    height: 4rem;
-    background: url("../img/photo-inner.png") no-repeat;
-    background-size: 100% 100%;
-    opacity: 0;
-}
-.basic{
-    position: absolute;
-    left: .35rem;
-    top: .5rem;
-    width: .85rem;
-    height: .3rem;
-    line-height: .3rem;
-    text-align: center;
-    font-size: .18rem;
-    border: .02rem dashed #c4c1a2;
-    color: khaki;
-    border-radius: .025rem;
-}
-.basic_ul{
-    position: absolute;
-    left: .35rem;
-    top: 1rem;
-    color: khaki;
-}
-.basic_ul li{
-    padding-bottom: .075rem;
-    height: .2rem;
-    line-height: .2rem;
-    font-size: .16rem;
-}
-/*第三张*/
-.skills{
-    margin: .2rem auto;
-    width: 2rem;
-    height: .5rem;
-    line-height: .5rem;
-    text-align: center;
-    font-size: .24rem;
-    letter-spacing: .05rem;
-    color: #FFFFFF;
-    border-radius: .05rem;
-    opacity: 0;
-}
-.pageThr ul{
-    position: absolute;
-    left: .2rem;
-    top: 1.0rem;
-    //border: 1px solid black;
-}
-.skill_list{
-    width: 2.5rem;
-    height: .5rem;
-    line-height: .5rem;
+    color: #fff;
+    font-size: .6rem;
+    font-weight: normal;
 
-}
-.skill_list .child_left{
-    position: absolute;
-    left: 0;
-    width: .6rem;
-    height: .5rem;
     opacity: 0;
-}
-.skill_list1{
-    top: 0;
-}
-.skill_list2{
-    top: .7rem;
-}
-.skill_list3{
-    top: 1.4rem;
-}
-.skill_list4{
-    top: 2.1rem;
-}
-.skill_list5{
-    top: 2.8rem;
 }
 
-.skill_list .child_left img{
+.page2 .box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -2.4rem 0 0 -2.56rem;
+    width: 5.12rem;
+    height: 5.8rem;
+}
+
+.page2 .box img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -.5rem 0 0 -.5rem;
+    width: 1rem;
+    height: 1rem;
+    opacity: 0;
+}
+
+.page2 .box img:nth-child(1) {
+    margin: -.85rem 0 0 -.66rem;
+    width: 1.32rem;
+    height: 1.7rem;
+}
+
+#page2 h2 {
+    -webkit-animation: bounceInLeft 1s both;
+    animation: bounceInLeft 1s both;
+}
+
+#page2 .box img:nth-child(1) {
+    -webkit-animation: shake 1s both;
+    animation: shake 1s both;
+}
+
+#page2 .box img:nth-child(2) {
+    -webkit-animation: page2Move1 .5s .5s both, page2Shake 1s 1s infinite both;
+    animation: page2Move1 .5s .5s both, page2Shake 1s 1s infinite both;
+}
+
+#page2 .box img:nth-child(3) {
+    -webkit-animation: page2Move2 .5s .5s both, page2Shake 1s 1s infinite both;
+    animation: page2Move2 .5s .5s both, page2Shake 1s 1s infinite both;
+}
+
+#page2 .box img:nth-child(4) {
+    -webkit-animation: page2Move3 .5s .5s both, page2Shake 1s 1s infinite both;
+    animation: page2Move3 .5s .5s both, page2Shake 1s 1s infinite both;
+}
+
+#page2 .box img:nth-child(5) {
+    -webkit-animation: page2Move4 .5s .5s both, page2Shake 1s 1s infinite both;
+    animation: page2Move4 .5s .5s both, page2Shake 1s 1s infinite both;
+}
+
+#page2 .box img:nth-child(6) {
+    -webkit-animation: page2Move5 .5s .5s both, page2Shake 1s 1s infinite both;
+    animation: page2Move5 .5s .5s both, page2Shake 1s 1s infinite both;
+}
+
+#page2 .box img:nth-child(7) {
+    -webkit-animation: page2Move6 .5s .5s both, page2Shake 1s 1s infinite both;
+    animation: page2Move6 .5s .5s both, page2Shake 1s 1s infinite both;
+}
+
+/*联系方式*/
+.page3 {
+    background: url("../img/b3.jpg") no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.page3 h2 {
+    position: absolute;
+    left: 0;
+    top: 1.3rem;
     width: 100%;
-    height: 100%;
-}
-.skill_list p{
-   position: absolute;
-    right: 0;
-    width: 1.5rem;
-    font-size: .16rem;
+    height: .9rem;
+    line-height: .9rem;
     text-align: center;
-    color: #FFFFFF;
+    color: #fff;
+    font-size: .6rem;
+    font-weight: normal;
+
     opacity: 0;
 }
-.child_right1{
-    top: 0;
+
+#page3 h2 {
+    -webkit-animation: zoomIn 1s 0s both;
+    animation: zoomIn 1s 0s both;
 }
-.child_right2{
-    top: 0.7rem;
+
+.page3 .concat {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    margin-left: -2.5rem;
+    width: 5rem;
 }
-.child_right3{
-    top: 1.4rem;
-}
-.child_right4{
-    top: 2.1rem;
-}
-.child_right5{
-    top: 2.8rem;
-}
-/*第四页*/
-.experience{
-    margin: .3rem auto;
-    width: 2.5rem;
-    text-align: center;
-    height: .5rem;
-    line-height: .5rem;
-    font-size: .24rem;
-    letter-spacing: .05rem;
-    color: rgba(255,255,255,.8);
+
+.page3 .concat li {
+    margin-bottom: .4rem;
+    height: 1.6rem;
     opacity: 0;
 }
-.mid{
-    position: absolute;
-    left: 1.58rem;
-    bottom: .5rem;
-    width: .05rem;
-    height: 0;
-    background: lightseagreen;
-    border-radius: .05rem;
-}
-.mid>div{
-    position: absolute;
-    left:0 ;
-    width: .1rem;
-    height: .1rem;
+
+.page3 .concat li .icon {
+    float: left;
+    margin-left: -15px;
+    width: .98rem;
+    height: .98rem;
     border-radius: 50%;
-    background: lightcoral;
-}
-.fir{
-    bottom: 0.35rem;
-    opacity: 0;
-}
-.two{
-    bottom: 1.2rem;
-    opacity: 0;
-}
-.thr{
-    bottom: 2.3rem;
-    opacity: 0;
-}
-.for{
-    bottom: 3.2rem;
-    opacity: 0;
-}
-.pageFor ul{
-    position: absolute;
-    bottom: .5rem;
-    width: 1.3rem;
-    color: #FFFFFF;
-    font-size: .16rem;
-}
-.pageFor ul.left{
-    left: .1rem;
-}
-.pageFor ul.right{
-    right: .1rem;
-}
-.pageFor ul.left li,.pageFor ul.right li{
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    color: #fff;
-}
-.fir_left,.fir_right{
-    bottom: 1rem;
-}
-.two_left,.two_right{
-    bottom: 1rem;
-}
-.thr_left,.thr_right{
-    bottom: 2.5rem;
-}
-.for_left,.for_right{
-    bottom: 2.5rem;
-}
-/*第五张*/
-.contact{
-    margin: .3rem auto;
-    width: 2rem;
-    height: .5rem;
-    line-height: .5rem;
-    text-align: center;
-    font-size: .24rem;
-    letter-spacing: .05rem;
-    color: #FFFFFF;
-    border-radius: .05rem;
-    opacity: 0;
-}
-div.weixin{
-    margin: .2rem auto;
-    width: 1.5rem;
-    height: 1.5rem;
-    opacity: 0;
-}
-.weixin img{
-    width: 100%;
-    height: 100%;
-}
-.weixin p{
-    font-size: .14rem;
-    color: #ccc;
-    text-align: center;
-    padding-top: .1rem;
-}
-.info{
-    margin: .5rem auto;
-    width: 1.8rem;
-}
-.info li{
-    height: .5rem;
-    line-height: .5rem;
-    font-size: .18rem;
-    color: #fff;
-    opacity: 0;
-    text-align: center;
-}
-.info li.con{
-    font-size: .16rem;
-    color: #ccc;
-}
-/*第一页*/
-#page1 .resume{
-    -webkit-animation: fadeInUp 2s ease 0.1s 1 both;
-    animation: fadeInUp 2s ease 0.1s 1 both;
-}
-#page1 .logo{
-    -webkit-animation: fadeInDown 3s ease 0s 1 both;
-    animation: fadeInDown 3s ease 0s 1 both;
-}
-#page1 .job_direction{
-    -webkit-animation: bounceInLeft 2s 1s both;
-    animation: bounceInLeft 2s 1s both;
-}
-#page1 .title{
-    -webkit-animation: fadeIn 2.5s ease 1s 1 both;
-    animation: fadeIn 2.5s ease 1s 1 both;
-}
-#page1 .know_more{
-    -webkit-animation: bounceInUp 2s 2s both;
-    animation: bounceInUp 2s 2s both;
-}
-/*第二张*/
-#page2 .white_back{
-    -webkit-animation: fadeIn 2s 0.2s both;
-    animation: fadeIn 2s 0.2s both;
-}
-#page2 h2{
-    -webkit-animation: rollIn 2s 0.5s both;
-    animation: rollIn 2s 0.5s both;
-}
-#page2 ul{
-    -webkit-animation: bounceInLeft 2s 1s both;
-    animation: bounceInLeft 2s 1s both;
-}
-#page2 .mySelf{
-    -webkit-animation: zoomInRight 2s 1.3s both;
-    animation: zoomInRight 2s 1.3s both;
-}
-/*第三页*/
-#page3 .skills{
-    -webkit-animation: fadeInLeft 2.6s ease 0s 1 both;
-    animation: fadeInLeft 2.6s ease 0s 1 both;
-}
-#page3 .child_left{
-    -webkit-animation: fadeInLeft 2.6s ease 0s 1 both;
-    animation: fadeInLeft 2.6s ease 0s 1 both;
-}
-#page3 .child_right1{
-    -webkit-animation: fadeInRight 1s 1s both;
-    animation: fadeInRight 1s 1s both;
 }
 
-#page3 .child_right2{
-    -webkit-animation:  fadeInRight 1s 2s both;
-    animation:  fadeInRight 1s 2s both;
+.page3 .concat li:nth-child(1) .icon {
+    background: url("../img/phone.png") no-repeat;
+    background-size: 100% 100%;
 }
-#page3 .child_right3{
-    -webkit-animation:  fadeInRight 1s 3s both;
-    animation:  fadeInRight 1s 3s both;
+
+.page3 .concat li:nth-child(2) .icon {
+    background: url("../img/qq.png") no-repeat;
+    background-size: 100% 100%;
 }
-#page3 .child_right4{
-    -webkit-animation:  fadeInRight 1s 4s both;
-    animation:  fadeInRight 1s 4s both;
+
+.page3 .concat li:nth-child(3) .icon {
+    background: url("../img/Email.png") no-repeat;
+    background-size: 100% 100%;
 }
-#page3 .child_right5{
-    -webkit-animation:  fadeInRight 1s 5s both;
-    animation:  fadeInRight 1s 5s both;
+
+.page3 .concat .textCon {
+    margin-top: 0.9rem;
+    margin-left: -15px;
+    padding: .2rem;
+    width: 100%;
+    height: .6rem;
+    line-height: .6rem;
+    text-align: center;
+    color: #fff;
+    font-size: 0.24rem;
 }
-/*第四张*/
-#page4 .experience{
-    -webkit-animation: fadeIn 1s 0.2s both;
-    animation: fadeIn 1s 0.2s both;
+
+.page3 .concat .textCon span {
+    display: inline-block;
+    margin-left: .45rem;
+    min-width: .7rem;
+    font-size: .35rem;
+    vertical-align: bottom;
 }
-#page4 .mid{
-    -webkit-animation: divMove 1s 0.5s both;
-    animation: divMove 1s 0.5s both;
+
+#page3 {
 }
-#page4 .fir{
-    -webkit-animation: big_small 1s 0.7s both;
-    animation: big_small 1s 0.7s both;
+
+#page3 .concat li:nth-child(1) {
+    -webkit-animation: zoomIn 1.4s .5s both;
+    animation: zoomIn 1.4s .5s both;
 }
-#page4 .fir_left{
-    -webkit-animation: fadeInLeft 1s 1s both;
-    animation: fadeInLeft 1s 1s both;
+
+#page3 .concat li:nth-child(2) {
+    -webkit-animation: zoomIn 1.8s .5s both;
+    animation: zoomIn 1.8s .5s both;
 }
-#page4 .fir_right{
-    -webkit-animation: fadeInRight 1s 1.3s both;
-    animation: fadeInRight 1s 1.3s both;
+
+#page3 .concat li:nth-child(3) {
+    -webkit-animation: zoomIn 2.2s .5s both;
+    animation: zoomIn 2.2s .5s both;
 }
-#page4 .two{
-    -webkit-animation: big_small 1s 1.6s both;
-    animation: big_small 1s 1.6s both;
+
+/*自我评价*/
+.page4 {
+    background: url("../img/b3.jpg") no-repeat center center;
+    background-size: 100% 100%;
 }
-#page4 .two_left{
-    -webkit-animation: fadeInLeft 1s 1.9s both;
-    animation: fadeInLeft 1s 1.9s both;
+
+.page4 h2 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -2.5rem;
+    padding: .3rem 0;
+    width: 5rem;
+    height: 1rem;
+    color: #fff;
+    opacity: 0;
 }
-#page4 .two_right{
-    -webkit-animation: fadeInRight 1s 2.2s both;
-    animation: fadeInRight 1s 2.2s both;
+
+.page4 h2 span {
+    display: inline-block;
+    margin: 45px -25px;
 }
-#page4 .thr{
-    -webkit-animation: big_small 1s 2.5s both;
-    animation: big_small 1s 2.5s both;
+
+.page4 h2 span:nth-child(1) {
+    height: .85rem;
+    line-height: .85rem;
+    font-size: .55rem;
 }
-#page4 .thr_left{
-    -webkit-animation: fadeInLeft 1s 2.8s both;
-    animation: fadeInLeft 1s 2.8s both;
+
+#page4 h2 {
+    -webkit-animation: bounceInDown 1s both;
+    animation: bounceInDown 1s both;
 }
-#page4 .thr_right{
-    -webkit-animation: fadeInRight 1s 3.1s both;
-    animation: fadeInRight 1s 3.1s both;
+
+.page4 p {
+    position: absolute;
+    margin: 0.5rem;
+    text-indent: .7rem;
+    top: 2.1rem;
+    width: 5.5rem;
+    line-height: .6rem;
+    color: #fff;
+    font-family: "microsoft yahei";
+    font-size: .36rem;
+    opacity: 0;
 }
-#page4 .for{
-    -webkit-animation: big_small 1s 3.4s both;
-    animation: big_small 1s 3.4s both;
+
+#page4 p {
+    -webkit-animation: fadeIn 2.5s 0.5s both;
+    animation: fadeIn 2.5s 0.5s both;
 }
-#page4 .for_left{
-    -webkit-animation: fadeInLeft 1s 3.7s both;
-    animation: fadeInLeft 1s 3.7s both;
+
+/*教育经历*/
+.page5 {
+    background: url("../img/b3.jpg") no-repeat center center;
+    background-size: 100% 100%;
 }
-#page4 .for_right{
-    -webkit-animation: fadeInRight 1s 4s both;
-    animation: fadeInRight 1s 4s both;
+
+.page5 p {
+    position: absolute;
+    margin-top: 1rem;
+    top: .57rem;
+    left: .64rem;
+    width: 5.5rem;
+    line-height: .6rem;
+    color: #fff;
+    font-family: "microsoft yahei";
+    font-size: .35rem;
+    opacity: 0;
 }
-/*第五页*/
-#page5 .contact{
-    -webkit-animation: lightSpeedIn 1s 0s both;
-    animation: lightSpeedIn 1s 0s both;
+
+.page5 p span {
+    margin-left: 0.64rem;
 }
-#page5 .weixin{
-    -webkit-animation: fadeIn 1s 0.3s both;
-    animation: fadeIn 1s 0.3s both;
+
+.page5 p:nth-child(2) {
+    top: 2.2rem;
+    width: 5.5rem;
 }
-#page5 .con{
-    -webkit-animation: rollIn 2s 1.2s ease both;
-    animation: rollIn 2s 1.2s ease both;
+
+.page5 p:nth-child(3) {
+    top: 4rem;
+    width: 5.5rem;
 }
-#page5 .restart{
-    -webkit-animation: rollIn 2s 2.2s ease both;
-    animation: rollIn 2s 2.2s ease both;
+
+.page5 p:nth-child(4) {
+    top: 6rem;
+    width: 5.5rem;
+}
+
+#page5 p:nth-child(1) {
+    -webkit-animation: bounceInLeft 1s both;
+    animation: bounceInLeft 1s both;
+}
+
+#page5 p:nth-child(2) {
+    -webkit-animation: bounceInLeft 1s 0.2s both;
+    animation: bounceInLeft 1s 0.2s both;
+}
+
+#page5 p:nth-child(3) {
+    -webkit-animation: bounceInLeft 1s 0.4s both;
+    animation: bounceInLeft 1s 0.4s both;
+}
+
+#page5 p:nth-child(4) {
+    -webkit-animation: bounceInLeft 1s 0.6s both;
+    animation: bounceInLeft 1s 0.6s both;
+}
+
+/*兴趣爱好*/
+.page6 {
+    background: url("../img/b3.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.page6 h2 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -2.5rem;
+    padding: .3rem 0;
+    width: 5rem;
+    height: 1rem;
+    border-bottom: .02rem solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    opacity: 0;
+}
+
+.page6 h2 span {
+    display: inline-block;
+    margin: 20px -5px;
+}
+
+.page6 h2 span:nth-child(1) {
+    height: .85rem;
+    line-height: .85rem;
+    font-size: .55rem;
+}
+
+.page6 h2 span:nth-child(2) {
+    height: .35rem;
+    line-height: .35rem;
+    font-size: .24rem;
+}
+
+.page6 .concat {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    margin-left: -2.5rem;
+    width: 5rem;
+}
+
+.page6 .concat li {
+    margin-bottom: .4rem;
+    height: 1.6rem;
+    opacity: 0;
+}
+
+.page6 .concat li .icon {
+    float: left;
+    margin-top: .7rem;
+    width: .98rem;
+    height: .98rem;
+    border-radius: 50%;
+}
+
+.page6 .concat li:nth-child(1) .icon {
+    background: url("../img/basketBall.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+
+.page6 .concat .textCon {
+    float: right;
+    padding: .2rem;
+    width: 3.18rem;
+    height: 1.8rem;
+    color: #fff;
+    font-size: .24rem;
+}
+
+.page6 .concat .textCon1 {
+    float: right;
+    margin-top: .3rem;
+    padding: .2rem;
+    width: 4.8rem;
+    text-align: center;
+    color: #fff;
+    font-size: .4rem;
+}
+
+.page6 .concat .textCon span {
+    display: inline-block;
+    min-width: .7rem;
+    font-size: .28rem;
+    vertical-align: bottom;
+}
+
+.page6 img {
+    position: absolute;
+    top: 5.6rem;
+    left: 50%;
+    margin-left: -2.5rem;
+    width: 5rem;
+    height: 3.6rem;
+    opacity: 0;
+}
+
+#page6 h2 {
+    -webkit-animation: bounceInDown 1s both;
+    animation: bounceInDown 1s both;
+}
+
+#page6 .concat li:nth-child(1) {
+    -webkit-animation: zoomIn 1s .5s both;
+    animation: zoomIn 1s .5s both;
+}
+
+#page6 .concat li:nth-child(2) {
+    -webkit-animation: zoomIn 1s 1s both;
+    animation: zoomIn 1s 1s both;
+}
+
+#page6 img {
+    -webkit-animation: bounceInUp 1s 1.5s both;
+    animation: bounceInUp 1s 1.5s both;
 }
